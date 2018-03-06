@@ -1,3 +1,6 @@
+#_*_coding:utf-8_*_
+
+#对数组模拟N进制加法（只针对数组递增序列）
 def n_hexadecimal(numlist,n):
     for i in range(len(numlist)):
         if numlist[i]>=n:
@@ -5,6 +8,7 @@ def n_hexadecimal(numlist,n):
             numlist[i+1]+=1
     return numlist
 
+#判断选择是否符合题目规则
 def rule(choselist):
     t2=[2,3,0,1]
     if not choselist[4]==t2[choselist[1]]:
@@ -48,12 +52,12 @@ def rule(choselist):
         return False
     return True
 
-chose=[0,0,0,0,0,0,0,0,0,0,0]
+chose=[0,0,0,0,0,0,0,0,0,0,0]  #多加一位防止溢出和判断结束
 answerlist=[]
 letter=['A','B','C','D']
 while chose[-1]==0:
     chose[0]+=1
-    n_hexadecimal(chose,4)
+    n_hexadecimal(chose,4)    #利用模拟4进制加法实现查询所有的选择可能
     if rule(chose):
         temp=[]
         for i in range(len(chose)-1):
