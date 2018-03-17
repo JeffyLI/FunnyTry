@@ -44,8 +44,10 @@ def print_result(html):
             out=x.split(">")[1]
         else:
             out+=x+" "
+    if out=="":
+        out="无法翻译该单词"
     print(out)
-    print(" ")
+    print(" ")    
 
 #保存查询的结果到文件
 def saveHtmlToFile(filename,content,html):
