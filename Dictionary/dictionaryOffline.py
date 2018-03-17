@@ -74,7 +74,7 @@ class TrieTree:
             
 if __name__=="__main__":
     a=TrieTree()
-    a.buildTreeByFile("word.txt")
+    a.buildTreeByFile("dictionaryfile.txt")
     a.saveTree("save.txt")
     searchdata=input("input:")
     while searchdata.lower()!='q':
