@@ -14,7 +14,7 @@ class TrieTree:
     #去重插入
     def insert(self,word,content):
         cur_node=self.root
-        word=word.lower()
+        word=word.lower().strip()
         for i in range(len(word)):
             index=ord(word[i])-97
             if cur_node.child[index]=="":
@@ -28,7 +28,7 @@ class TrieTree:
 
     def search(self,word):
         cur_node=self.root
-        word=word.lower()
+        word=word.lower().strip()
         for i in range(len(word)):
             index=ord(word[i])-97
             if cur_node=="":

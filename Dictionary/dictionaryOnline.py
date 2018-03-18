@@ -27,11 +27,9 @@ def setText(aString):
 #如果输入为空，则读取剪切板的内容
 def judge_input(content):
     if content=="":
-        result=getText()
-        print("Search:",result)
-    else:
-        result=content
-    return result
+        content=getText()
+        print("Search:",content)
+    return content
 
 #打印结果
 def print_result(html):
@@ -58,7 +56,7 @@ def saveHtmlToFile(filename,content,html):
         if content!="":
             savefile.write(content)
             content=""
-        if("br" in x):
+        if("<br" in x):
             savefile.write(";"+out)
             out=x.split(">")[1]
         else:
@@ -87,7 +85,7 @@ def save_searchs(searchfilename,savefilename):
 def searchWord(word):
     url="http://dict-co.iciba.com/search.php"
     data={}
-    data['word']=judge_input(word)
+    data['word']=word
     data['submit']='提交'
     data = urllib.parse.urlencode(data).encode('utf-8')
     response = urllib.request.urlopen(url, data)
